@@ -59,7 +59,7 @@ Clone만으로 안내나 스킬이 자동 실행되지는 않는다. 위 시작 
 | [빈 작업 기록 양식](templates/WORKLOG.template.md) | 과제 공간에 WORKLOG.md를 처음 만들 때. 공개 원본에는 실제 내용을 채우지 않음 |
 | [HTML 열람본](viewer/index.html) | 기존 파일의 내부 미리보기가 지원될 때 목차와 이미지 확대 기능으로 읽기. 미지원이면 MD 사용 |
 | [핵심 요약](skills/task-evidence-check/references/cofa-core.md) | 조쉬 인터뷰와 Probe의 평가 관점을 이해할 때 |
-| [스킬 하나](skills/task-evidence-check/SKILL.md) | 업무 조건을 작업·검증에 연결할 때. 반복 읽기·설명은 [토큰 절약 쉬운 방식](skills/task-evidence-check/SKILL.md#토큰-절약-쉬운-방식)만 참고 |
+| [스킬 하나](skills/task-evidence-check/SKILL.md) | 업무 조건을 작업·검증에 연결할 때. 반복 읽기·설명은 [토큰 절약 방식](skills/task-evidence-check/SKILL.md#토큰-절약-방식)만 참고 |
 | [공통 지침](AGENTS.md) | 현재 과제의 규정·권한·완료 보고 범위를 맞출 때 |
 | [반도체 용어집](references/semiconductor-glossary.md) | hy-스쿨2 관련 공정·검사·패키징 용어가 필요할 때 |
 | [원문 이미지 포함 PDF](output/pdf/hy-school2-notes-images.pdf) | 지원되는 환경의 선택 자료. 44쪽, 약 38 MB, 내용 미교정. 응시 기본 동선에서는 사용하지 않음 |
