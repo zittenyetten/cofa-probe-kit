@@ -199,12 +199,12 @@ Superpowers의 역할 분리 방식은 이 자료집의 [방법 안내 4절](ref
 
 ## ooo·omo — 응시 기본 도구에서 제외, 개인 사전 연습용
 
-두 도구의 이름 자체가 일괄 금지됐다고 판단한 것은 아니다. **현재 제공 환경에서의 설치·인증·허용 모델·통신을 확인하지 못했으므로 응시 기본 흐름에 추가하지 않는다.** 요구 정리와 완료 검증 방법은 기존 스킬로도 사용할 수 있다.
+두 도구의 이름 자체가 일괄 금지됐다고 판단한 것은 아니다. **이 자료집의 응시용 모델은 Sol 6.1·Terra 5.6·Luna 6·Sol 6.0만이며 Astra·목록 밖 모델과 제공 Codex·도구·환경 업데이트·자동 갱신은 금지한다.** 두 도구는 응시 흐름에 추가하지 않고, 아래 설치 예시도 개인 사전 연습용으로만 남긴다. 요구 정리와 완료 검증 방법은 기존 MD로 참고할 수 있다.
 
 | 도구·공식 레포 | 확인한 실행 조건 | 현재 판단 |
 | --- | --- | --- |
-| **ooo · [Q00/ouroboros](https://github.com/Q00/ouroboros)** | Codex backend는 선택 모델을 기본 상속하나 로컬 codex exec·인증·Python 패키지 필요. setup은 MCP·규칙·스킬·설정 변경 | 별도 AI를 반드시 요구하는 도구는 아님. 제공 Codex의 CLI·인증 연결과 허용된 설치 경로를 검증하기 전에는 도입 보류 |
-| **omo Light · [code-yeongyu/oh-my-openagent](https://github.com/code-yeongyu/oh-my-openagent)** | 기존 Codex CLI 인증을 사용하지만 현재 모델 catalog·일부 subagent에 gpt-6-astra 명시. 외부 MCP·자체 자동 갱신·기본 통계 전송 포함 | 허용 모델·외부 전송 조건과 충돌할 수 있어 그대로 응시에 사용하도록 권하지 않음. 기존 인증 사용만으로 호환·규정 충족이라 판단하지 않음 |
+| **ooo · [Q00/ouroboros](https://github.com/Q00/ouroboros)** | Codex backend는 선택 모델을 기본 상속하나 로컬 codex exec·인증·Python 패키지 필요. setup은 MCP·규칙·스킬·설정 변경 | 개인 사전 연습용으로만 참고하며 이 자료집의 응시 흐름에는 추가하지 않음. 요구 정리·검증 방법은 기존 MD로 사용 |
+| **omo Light · [code-yeongyu/oh-my-openagent](https://github.com/code-yeongyu/oh-my-openagent)** | 기존 Codex CLI 인증을 사용하지만 현재 모델 catalog·일부 subagent에 gpt-6-astra 명시. 외부 MCP·자체 자동 갱신·기본 통계 전송 포함 | Astra·자동 갱신이 이 자료집의 응시 사용 범위를 벗어나므로 응시 실행에서 제외. 기존 인증 사용만으로 허용된 것으로 보지 않음 |
 | **omo Ultimate / Native** | Ultimate는 OpenCode 플러그인, Native는 별도 실행기·provider 인증 경로 | 제공 Codex만 사용하는 현재 기본 경로에서 제외. Native의 오프라인 런타임 설명은 모델 추론까지 오프라인이라는 뜻이 아님 |
 
 ### ooo에서 따로 확인한 것
@@ -215,7 +215,7 @@ Superpowers의 역할 분리 방식은 이 자료집의 [방법 안내 4절](ref
 
 ### omo Light에서 따로 확인한 것
 
-- 현재 [모델 catalog](https://github.com/code-yeongyu/oh-my-openagent/blob/bfee6fc72a09c016c47f128fda5aad12c96bbb5c/packages/omo-codex/plugin/model-catalog.json)와 [explorer 설정](https://github.com/code-yeongyu/oh-my-openagent/blob/bfee6fc72a09c016c47f128fda5aad12c96bbb5c/packages/omo-codex/plugin/components/ultrawork/agents/explorer.toml)에 Astra가 지정돼 있다. 최신 운영 안내의 허용 모델과 반드시 대조해야 한다.
+- 확인한 [모델 catalog](https://github.com/code-yeongyu/oh-my-openagent/blob/bfee6fc72a09c016c47f128fda5aad12c96bbb5c/packages/omo-codex/plugin/model-catalog.json)와 [explorer 설정](https://github.com/code-yeongyu/oh-my-openagent/blob/bfee6fc72a09c016c47f128fda5aad12c96bbb5c/packages/omo-codex/plugin/components/ultrawork/agents/explorer.toml)에 Astra가 지정돼 있다. 이 설정의 실행은 응시 경로에서 제외한다.
 - [MCP 정의](https://github.com/code-yeongyu/oh-my-openagent/blob/bfee6fc72a09c016c47f128fda5aad12c96bbb5c/packages/omo-codex/plugin/.mcp.json)에 원격 `grep_app`·`context7`가 포함된다. MCP 허용이 시험 자료를 이 서버들에 보내도 된다는 뜻은 아니다.
 - 세션 시작 시 npm 버전 조회·OMO 자체 자동 갱신 경로가 있고, 기본 갱신 명령에는 `--codex-autonomous`가 있다. 최초 설치의 `--no-codex-autonomous`만으로 이후 권한 설정까지 보장하지 않는다. 정상 marketplace 설치에는 갱신 생략 조건이 있다. **Codex 본체 업데이트로 확인한 것은 아니다.** [갱신 명령](https://github.com/code-yeongyu/oh-my-openagent/blob/bfee6fc72a09c016c47f128fda5aad12c96bbb5c/packages/omo-codex/plugin/scripts/auto-update-plan.mjs), [예외·끄기 조건](https://github.com/code-yeongyu/oh-my-openagent/blob/bfee6fc72a09c016c47f128fda5aad12c96bbb5c/packages/omo-codex/plugin/scripts/auto-update.mjs)
 - 공식 안내는 기본 익명 통계를 설치·세션 시작 시 외부로 보낸다고 설명한다. 이 사실만으로 시험 내용 유출을 확인한 것은 아니지만, 외부 통신이 없는 도구로 볼 수 없다. [설치·통계 범위와 끄기 옵션](https://github.com/code-yeongyu/oh-my-openagent/blob/bfee6fc72a09c016c47f128fda5aad12c96bbb5c/docs/guide/installation.md#telemetry--privacy)
