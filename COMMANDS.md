@@ -2,6 +2,8 @@
 
 **`cofa-probe-kit/START_HERE.md` 또는 자료집 README의 시작 문구를 AI에게 주면 된다. 이 명령을 전부 직접 실행할 필요는 없다.** 과제 README와 자료집 README를 실제 경로로 구분한다. AI 요청문은 [RUNBOOK](RUNBOOK.md), 레포 선택은 [REPOSITORIES.md](REPOSITORIES.md)에서 관리한다. 여기서는 터미널 명령을 모았다.
 
+**본시험 기본값은 참고만 하는 것이다.** 과제 작업에 직접 필요한 기존 파일 읽기·분석·검증 명령을 선택하고, 이 목록을 근거로 설치·등록·설정 변경·도구 지원 실험을 시작하지 않는다. 설치·MCP 예시는 개인 사전 학습용으로 남긴다.
+
 | 상황 | 볼 곳 | 외부 연결 |
 | --- | --- | --- |
 | 받은 자료 묶음 사용 | 1~2번 | 이미 받은 파일은 불필요. 최초 clone은 허용된 GitHub 수신, HTML은 기존 내부 파일 미리보기 지원 필요 |
@@ -46,9 +48,9 @@ git -C cofa-probe-kit rev-parse --short HEAD
 python -X utf8 -c "from pathlib import Path; print(Path('cofa-probe-kit/START_HERE.md').read_text(encoding='utf-8'))"
 ```
 
-파일 목록에서 `cofa-probe-kit/START_HERE.md`를 직접 열어도 된다. 그림이 필요하면 [RUNBOOK 1번](RUNBOOK.md#1-자료-준비-clone과-html-열기)으로 기존 `viewer/index.html`과 이미지·CSS·JS를 내부 미리보기로 볼 수 있는지 확인한다. **이 참고자료를 위해 서버를 새로 만들거나 실행하지 않는다.** 포트 설정·설치·프로세스 종료도 필요하지 않다. 미지원이면 받은 MD로 진행한다.
+파일 목록에서 `cofa-probe-kit/START_HERE.md`를 직접 열어도 된다. 그림이 필요하고 내부 미리보기의 지원·허용이 이미 확인됐다면 [RUNBOOK 1번](RUNBOOK.md#1-자료-준비-clone과-html-열기)을 참고한다. **불명확한 미리보기는 시험하지 않고 받은 MD로 진행한다.** 이 참고자료를 위한 서버·포트 설정·설치·프로세스 종료는 하지 않는다.
 
-PDF가 안 열리면 `cofa-probe-kit/references/semiconductor-glossary.md`를 읽고, 그림은 기존 HTML로 확인한다. PDF 재변환·새 HTML 제작은 필요 없다. 상세 대안은 [RUNBOOK 4번](RUNBOOK.md#4-pdf-열람-대안)을 따른다.
+PDF가 안 열리면 `cofa-probe-kit/references/semiconductor-glossary.md`를 읽는다. 사용자가 그림을 요청했고 내부 미리보기의 지원·허용이 이미 확인된 경우에만 기존 HTML을 선택한다. 불명확하면 새로 시험하지 않고 MD로 계속 진행한다. PDF 재변환·새 HTML 제작은 필요 없다. 상세 대안은 [RUNBOOK 4번](RUNBOOK.md#4-pdf-열람-대안)을 따른다.
 
 ## 3. 추가 설치 없이 로컬 파일 확인
 
@@ -172,7 +174,7 @@ npx lazycodex-ai install --no-codex-autonomous
 
 ## 8. MCP 설정을 이해하고 확인하기
 
-**JSON/TOML은 터미널 명령이 아니다.** [REPOSITORIES의 MCP 설명](REPOSITORIES.md#5-mcp와-json은-어디에-쓰나)에 호스트별 위치·설명용 JSON/TOML·개인 연습용 등록 예시를 모았다. Cofa의 실제 MCP 화면 형식은 미확인이다. 아래는 현재 호스트의 명령 지원을 읽기 전용으로 확인할 때 쓰며, 같은 명령이 제공 환경에 있다고 가정하지 않는다.
+**JSON/TOML은 터미널 명령이 아니다.** [REPOSITORIES의 MCP 설명](REPOSITORIES.md#5-mcp와-json은-어디에-쓰나)에 호스트별 위치·설명용 JSON/TOML·개인 연습용 등록 예시를 모았다. Cofa의 실제 MCP 화면 형식은 미확인이다. 아래 도움말 확인도 **개인 사전 연습용**이며, 본시험에서 자료집 때문에 실행할 단계가 아니다. 같은 명령이 제공 환경에 있다고 가정하지 않는다.
 
 ```sh
 codex --version
