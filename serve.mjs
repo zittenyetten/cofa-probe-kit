@@ -6,10 +6,10 @@ import { fileURLToPath } from 'node:url';
 
 const args = process.argv.slice(2);
 if (args.length && (args.length !== 2 || args[0] !== '--port' || !/^\d+$/.test(args[1]))) {
-  console.error('Usage: node serve.mjs [--port 8000]');
+  console.error('Usage: node serve.mjs [--port 3000]');
   process.exit(1);
 }
-const port = args.length ? Number(args[1]) : 8000;
+const port = args.length ? Number(args[1]) : 3000;
 if (!Number.isInteger(port) || port < 1 || port > 65535) {
   console.error('Port must be an integer from 1 to 65535.');
   process.exit(1);
@@ -78,13 +78,15 @@ const server = createServer(async (req, res) => {
 });
 server.on('error', error => {
   console.error(error.code === 'EADDRINUSE'
-    ? `Port ${port} is already in use. Choose another allowed port: node serve.mjs --port ${port === 65535 ? 8000 : port + 1}`
+    ? `Port ${port} is already in use. Do not stop an unknown service or switch ports blindly. Use the local MD files, or ask Helper which internal Browser port is allowed before using --port.`
     : `Unable to start server: ${error.code ?? error.message}`);
   process.exitCode = 1;
 });
 server.listen(port, '0.0.0.0', () => {
-  console.log(`Cofa Probe Kit: http://localhost:${server.address().port}/ (listening on 0.0.0.0)`);
-  console.log('Open / in the provided browser. Stop with Ctrl+C.');
+  console.log(`Cofa Probe Kit listening on 0.0.0.0:${server.address().port}`);
+  console.log(`Use only the provided internal Browser: its preview for port ${server.address().port}, path /. If a PORT field is available, match it to ${server.address().port}; otherwise use the displayed internal preview URL without inventing a URL.`);
+  console.log('Keep the exam fullscreen; do not open an external browser or a new tab. Command approval is not permission to leave the exam screen.');
+  console.log('If that port is unavailable, use the local MD files and ask Helper. Stop this server with Ctrl+C in its terminal.');
 });
 let stopping = false;
 for (const signal of ['SIGINT', 'SIGTERM']) process.on(signal, () => {

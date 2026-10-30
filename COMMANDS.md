@@ -1,6 +1,6 @@
 # 설치·실행 명령어 모음
 
-**README의 시작 문구를 AI에게 주면 된다. 이 명령을 전부 직접 실행할 필요는 없다.** AI 요청문은 [RUNBOOK](RUNBOOK.md), 레포 선택은 [REPOSITORIES.md](REPOSITORIES.md)에서 관리한다. 여기서는 터미널 명령을 모았다.
+**`cofa-probe-kit/START_HERE.md` 또는 자료집 README의 시작 문구를 AI에게 주면 된다. 이 명령을 전부 직접 실행할 필요는 없다.** 과제 README와 자료집 README를 실제 경로로 구분한다. AI 요청문은 [RUNBOOK](RUNBOOK.md), 레포 선택은 [REPOSITORIES.md](REPOSITORIES.md)에서 관리한다. 여기서는 터미널 명령을 모았다.
 
 | 상황 | 볼 곳 | 외부 연결 |
 | --- | --- | --- |
@@ -20,7 +20,7 @@ node --version
 python --version
 ```
 
-자료 열람 서버는 **Node 18.2 이상**을 기준으로 한다. 없으면 환경을 업데이트하지 말고 MD·제공 PDF 미리보기를 사용한다. 아래 명령은 라이브러리를 찾을 수 있는지만 확인하며 실제 import·작업 성공을 보장하지 않는다.
+자료 열람 서버는 **Node 18.2 이상**을 기준으로 한다. 없으면 환경을 업데이트하지 말고 받은 MD를 사용한다. PDF 미리보기가 된다고 가정하지 않는다. 아래 명령은 라이브러리를 찾을 수 있는지만 확인하며 실제 import·작업 성공을 보장하지 않는다.
 
 ```sh
 python -c "import importlib.util as u; print({n: u.find_spec(n) is not None for n in ['pandas', 'pypdf', 'pdfplumber', 'duckdb']})"
@@ -41,22 +41,23 @@ git -C cofa-probe-kit status --short
 git -C cofa-probe-kit rev-parse --short HEAD
 ```
 
-그 폴더로 이동해 README를 읽는다.
+과제 작업 위치를 유지하고 자료집의 쉬운 안내를 경로로 지정해 읽는다. 아래는 clone 폴더의 상위 위치에서 실행한다.
 
 ```sh
-cd cofa-probe-kit
-python -X utf8 -c "from pathlib import Path; print(Path('README.md').read_text(encoding='utf-8'))"
+python -X utf8 -c "from pathlib import Path; print(Path('cofa-probe-kit/START_HERE.md').read_text(encoding='utf-8'))"
 ```
 
-파일 목록에서 [쉬운 안내](START_HERE.md)나 README를 직접 열어도 된다. **그림을 내부 Browser로 볼 때만** 아래 서버를 실행한다. MD를 읽고 과제를 시작하는 데에는 필요 없다.
+파일 목록에서 `cofa-probe-kit/START_HERE.md`를 직접 열어도 된다. **그림을 내부 Browser로 볼 때만** 아래 서버를 실행한다. MD를 읽고 과제를 시작하는 데에는 필요 없다.
 
 ```sh
-node serve.mjs --port 8000
+node cofa-probe-kit/serve.mjs --port 3000
 ```
 
-파일 목록에서 README를 직접 열어도 된다. 서버 터미널을 유지하고 사람이 내부 Browser의 **PORT = 실제 포트 숫자**, **URL = `/`**를 입력한다. 8000이 사용 중이면 빈 포트를 확인해 숫자만 바꾼다. 종료는 그 서버 터미널에서 `Ctrl+C`다. 다른 프로세스를 종료하지 않는다.
+이미 clone 폴더 안에 있다면 `node serve.mjs --port 3000`이다. 서버 터미널을 유지하고 **전체화면을 유지한 채 제공 내부 Browser**에서 확인한다. PORT·경로 칸이 있으면 `3000`과 `/`, URL만 표시되면 해당 환경의 내부 미리보기를 사용한다. 외부 주소창·새 탭에 주소를 옮기지 않는다. 실제 제공 포트가 다르면 그 안내를 우선한다.
 
-제공 파일 미리보기의 대안 경로는 `output/pdf/hy-school2-notes-images.pdf`(이미지 원문), `output/pdf/hy-school2-notes-text.pdf`(텍스트 원문), `references/semiconductor-glossary.md`(검수 용어집)다.
+3000이 점유됐으면 이 대화에서 실행한 서버인지 확인하고 다른 과제 프로세스는 종료하지 않는다. 허용된 다른 포트가 확인되지 않으면 MD로 전환한다. 종료는 이 열람 서버의 터미널에서만 `Ctrl+C`다. 승인 창의 실행 내용에 외부 브라우저·새 창 열기가 포함되면 진행하지 않는다.
+
+PDF가 안 열리면 `cofa-probe-kit/references/semiconductor-glossary.md`를 읽고, 그림은 기존 HTML로 확인한다. PDF 재변환·새 HTML 제작은 필요 없다. 상세 대안은 [RUNBOOK 4번](RUNBOOK.md#4-pdf-열람-대안)을 따른다.
 
 ## 3. 추가 설치 없이 로컬 파일 확인
 
