@@ -76,6 +76,8 @@ git clone https://github.com/OthmanAdi/planning-with-files.git
 
 ### 4. ooo와 omo: 개인 연습용
 
+**인터뷰·QA 방식만 쓰려면 [로컬 방법 안내](references/interview-qa-methods.md)로 충분하다.** 이 자료집에 필요한 절차를 정리했으므로 아래 설치는 방법론을 읽기 위한 선행 단계가 아니다.
+
 **응시용 설치 절차가 아니다.** 아래의 [연결 조건](#oooomo--응시-기본-도구에서-제외-개인-사전-연습용)을 먼저 읽는다. 해당 호스트에 이미 설치돼 있다면 재설치하지 않는다.
 
 **ooo / Linux·WSL 개인 연습 터미널:** 기존 Codex CLI·uv·지원 Python이 준비된 경우만 선택한다.

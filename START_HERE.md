@@ -58,6 +58,7 @@ AI가 결과를 만들면 저장된 파일을 직접 열어 보고, 무엇과 �
 | --- | --- |
 | 반도체 용어 | [짧은 용어집](references/semiconductor-glossary.md) |
 | 데이터·AI 개념 | [데이터·AI 모음](DATA_AI_GUIDE.md) |
+| 질문 순서·결과 검사 방법 | [인터뷰·QA 절차](references/interview-qa-methods.md)의 필요한 절만 참고 |
 | 레포 설치·MCP 설정이 헷갈림 | [레포별 명령과 MCP 설명](REPOSITORIES.md). 터미널·AI 채팅·설정 파일을 구분한다. 설치 예시는 개인 사전 연습용이다. |
 | 그림 확대 | [RUNBOOK 1번](RUNBOOK.md#1-자료-준비-clone과-html-열기). 기존 HTML을 내부 미리보기로 볼 수 있을 때만 같은 화면의 확대·닫기 버튼을 사용한다. |
 | 시험 전 설명 연습 | [서술형 대비](ESSAY_PREP.md). 프롬프트는 사전 연습용이다. |
