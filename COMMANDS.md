@@ -8,6 +8,7 @@
 | 로컬 파일 확인 | 3번 | 불필요 |
 | 이미 설치된 라이브러리 활용 | 4번 | 아래 예시는 로컬 파일만 사용 |
 | 개인 사전 연습용 설치 | 5번 | 패키지·의존성 수신 필요. 응시 중 설치 지시가 아님 |
+| 개인 사전 연습용 ooo·omo | 6번 | 도구 설치·호스트 설정·모델 접근 등이 별도로 필요 |
 
 한 줄씩 실행하고 오류가 나면 원인을 확인한다. python이 없으면 이미 있는 python3 또는 Windows의 py를 확인해 실행기 이름만 바꾼다. `input.csv`, `input.json`, `input.pdf`는 실제 허용된 입력으로 바꿀 **자리표시자**이며 저장소의 정답 파일이 아니다.
 
@@ -134,10 +135,40 @@ Windows Git Bash에서 Windows Python으로 만든 환경이면 bin/python 대�
 
 설치 버전은 배포 시점에 달라지므로 아래 제작 검사 버전과 같다고 보장하지 않는다. pip check는 의존성 충돌 확인이며 파일 처리 정확성 검증은 아니다.
 
-## 6. 검증 범위와 출처
+## 6. 개인 사전 연습용 ooo와 omo
+
+**인터넷·설치·호스트 설정 변경이 허용된 개인 환경에서만 선택하는 예시다.** Workkit을 사용하거나 받은 MD를 읽는 데 필요하지 않다. 이미 설치·설정된 경우 다시 설치하지 말고 해당 호스트에서 사용한다. 아래는 공식 문서를 대조한 명령이며 이번 작업에서 실행하지 않았다. 두 도구를 모두 설치하라는 절차가 아니다.
+
+### ooo · Ouroboros: 기존 Codex CLI에 연결하는 예
+
+기존 Codex CLI의 정상 사용과 `uv` 사용 가능 여부가 전제다. Python 3.12 이상이 필요하며, 패키지·의존성·필요한 런타임 수신이 발생할 수 있다. 다른 호스트를 쓰면 [공식 시작 안내](https://github.com/Q00/ouroboros/blob/main/docs/getting-started.md)의 해당 경로를 고른다.
+
+```sh
+uv --version
+uv tool install "ouroboros-ai[mcp]"
+ouroboros --help
+ouroboros setup --runtime codex
+```
+
+`setup`은 도구 연결·MCP·관리되는 규칙/스킬과 설정을 변경한다. 실행 후 새 호스트 세션에서 [RUNBOOK 9번](RUNBOOK.md#9-개인-사전-연습에서-ooo와-omo-사용)의 채팅 입력을 사용한다. `ooo`를 일반 셸 실행 파일로 가정하지 않는다. uv가 없거나 설치·연결이 막히면 이 예시를 계속 진행하지 않는다. [공식 설치 옵션](https://github.com/Q00/ouroboros/blob/main/README.md), [Codex 연동과 확인 명령](https://github.com/Q00/ouroboros/blob/main/docs/runtime-guides/codex.md)
+
+### omo · Oh My OpenAgent: 기존 Codex CLI의 Light 예
+
+기존 Codex CLI와 Node/npm의 `npx`가 필요하고 Windows에서는 Git Bash도 필요하다. Light는 기존 Codex 인증을 사용한다. 아래 명령은 **추가 자율 실행 권한 설정을 선택하지 않는 옵션**이며, 플러그인·설정·훅·MCP·에이전트 파일까지 변경하지 않는다는 뜻은 아니다.
+
+```sh
+npx lazycodex-ai install --no-codex-autonomous
+```
+
+설치·설정이 끝난 뒤 새 Codex 세션의 채팅에서 [RUNBOOK 9번](RUNBOOK.md#9-개인-사전-연습에서-ooo와-omo-사용)을 사용한다. 원격 MCP·패키지 수신까지 오프라인에서 동작한다고 가정하지 않는다. OpenCode용 Ultimate와 독립형 Native는 설치 경로가 다르므로 이 명령을 그대로 적용하지 않는다. 다른 판을 선택한다면 [공식 플러그인 안내](https://github.com/code-yeongyu/oh-my-openagent/blob/dev/docs/guide/installation.md) 또는 [Native 안내](https://github.com/code-yeongyu/oh-my-openagent/blob/dev/docs/guide/install.md)를 확인한다.
+
+이 절의 개인 환경용 설치를 제공 Probe에 적용하라는 의미는 아니다. 제공 모델·도구로 충분하다면 기존 작업을 그대로 진행한다. 설치 실패를 우회하거나 별도 AI·인증 수단을 시험 환경에 추가하는 절차는 제공하지 않는다.
+
+## 7. 검증 범위와 출처
 
 - Windows 제작 환경의 Node 22.16.0, Python 3.12.14/3.13.3으로 기본 명령과 로컬 파일 예시를 확인했다. pandas 3.0.1, pypdf 6.10.0, pdfplumber 0.11.9의 작은 가상 입력을 사용했다. 최신 버전 표기가 아니다.
 - 가상환경 생성·pip 실행 확인과 실제 패키지 설치를 구분한다. 새 패키지를 설치하지 않았고 설치 명령은 공식 문서와 대조했다. Linux/macOS 셸·DuckDB·실제 Probe 실행은 미검증이다.
+- ooo·omo의 설치·설정·채팅 입력은 공식 문서와 대조한 예시다. 이번 추가에서 설치·로그인·설정 변경·모델 작업 실행을 하지 않았다.
 - [Python venv](https://docs.python.org/3/library/venv.html), [pip 사용법](https://pip.pypa.io/en/stable/user_guide/), [CSV](https://docs.python.org/3/library/csv.html), [JSON](https://docs.python.org/3/library/json.html), [Node 종료 API](https://nodejs.org/api/http.html#servercloseidleconnections). 라이브러리별 근거는 [레포 모음](REPOSITORIES.md)에 연결했다.
 
 실제 질문·프롬프트·데이터·결과는 과제 공간에만 둔다. 이 명령 모음에 커밋·push·외부 전송 절차를 추가하지 않는다.
