@@ -47,7 +47,7 @@ Clone만으로 안내나 스킬이 자동 실행되지는 않는다. 위 시작 
 | [정말 쉬운 사용 안내](START_HERE.md) | clone 다음에 무엇을 해야 할지 모를 때. 처음에는 이 문서부터 |
 | [실행 방법·복사용 요청문](RUNBOOK.md) | 과제 시작 문구·이후 단계, 자료 clone·실행·PDF 대안·오류 복구가 필요할 때 |
 | [인터뷰·역할 분리·QA 절차](references/interview-qa-methods.md) | OOO·Superpowers 설치 없이 질문 선택·종료, 작업/검토 관점 분리, 실제 결과 검사를 따라갈 때 |
-| [프롬프트·스킬·템플릿 안내](references/prompt-skill-template-guide.md) | 요청 구체화·예시·출력 형식·결과 개선, 스킬 구조와 사용 범위를 이해할 때 |
+| [프롬프트·스킬·템플릿 안내](references/prompt-skill-template-guide.md) | 요청·스킬·템플릿을 이해할 때. 모델 선택이 필요하면 [모델·추론 쉬운 선택표](references/prompt-skill-template-guide.md#6-모델과-추론-수준-쉽게-고르기) |
 | [작업 요청 빈 양식](templates/TASK_REQUEST.template.md) | 현재 요청의 범위·입력·규칙·출력·확인 기준에서 빠진 부분만 정리할 때 |
 | [15분 사전 체험 체크리스트](TRIAL_15MIN.md) | 체험 전에 준비하고, Helper·현업 담당자 질문과 실제 환경 점검의 우선순위를 정할 때 |
 | [활용할 레포 주소·설치 방법](REPOSITORIES.md) | 도구별 설치·사용 명령과 입력 위치, ooo/omo 개인 연습 예시, MCP의 JSON/TOML 설명을 함께 볼 때 |
