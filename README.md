@@ -1,5 +1,7 @@
 # Cofa Probe Kit
 
+**처음이면 [정말 쉬운 사용 안내](START_HERE.md)부터 읽는다.** clone 다음의 시작·질문·결과 확인·제출을 짧게 정리했다.
+
 **15분 사전 체험을 앞두었다면 [체험 체크리스트](TRIAL_15MIN.md)부터 읽는다.** Helper·현업 담당자 질문과 파일 저장·검증·종료 확인을 시간순으로 묶었다. 체험용 요청문은 RUNBOOK 10번에 있다.
 
 ## clone했다면 여기서 시작
@@ -47,6 +49,7 @@ Clone만으로 안내나 스킬이 자동 실행되지는 않는다. 파일을 �
 
 | 파일 | 읽는 때 |
 | --- | --- |
+| [정말 쉬운 사용 안내](START_HERE.md) | clone 다음에 무엇을 해야 할지 모를 때. 처음에는 이 문서부터 |
 | [실행 방법·복사용 요청문](RUNBOOK.md) | 과제 시작 문구·이후 단계, 자료 clone·실행·PDF 대안·오류 복구가 필요할 때 |
 | [15분 사전 체험 체크리스트](TRIAL_15MIN.md) | 체험 전에 준비하고, Helper·현업 담당자 질문과 실제 환경 점검의 우선순위를 정할 때 |
 | [활용할 레포 주소 모음](REPOSITORIES.md) | 기본 자료·조건부 라이브러리·읽기 참고용·개인 연습용 ooo/omo를 구분해 고를 때 |
@@ -74,6 +77,11 @@ Clone만으로 안내나 스킬이 자동 실행되지는 않는다. 파일을 �
 ```sh
 git clone https://github.com/zittenyetten/cofa-probe-kit.git
 cd cofa-probe-kit
+```
+
+이제 파일 목록의 `START_HERE.md` 또는 `README.md`를 읽고 제공 AI에서 시작한다. **그림을 내부 Browser로 볼 때만** 다음 서버 명령을 선택한다.
+
+```sh
 node serve.mjs --port 8000
 ```
 

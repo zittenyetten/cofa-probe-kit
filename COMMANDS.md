@@ -41,11 +41,16 @@ git -C cofa-probe-kit status --short
 git -C cofa-probe-kit rev-parse --short HEAD
 ```
 
-그 폴더로 이동해 읽거나 서버를 켠다.
+그 폴더로 이동해 README를 읽는다.
 
 ```sh
 cd cofa-probe-kit
 python -X utf8 -c "from pathlib import Path; print(Path('README.md').read_text(encoding='utf-8'))"
+```
+
+파일 목록에서 [쉬운 안내](START_HERE.md)나 README를 직접 열어도 된다. **그림을 내부 Browser로 볼 때만** 아래 서버를 실행한다. MD를 읽고 과제를 시작하는 데에는 필요 없다.
+
+```sh
 node serve.mjs --port 8000
 ```
 
