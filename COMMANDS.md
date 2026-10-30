@@ -4,7 +4,7 @@
 
 | 상황 | 볼 곳 | 외부 연결 |
 | --- | --- | --- |
-| 받은 Workkit 사용 | 1~2번 | 불필요. 내부 Browser 연결은 필요 |
+| 받은 자료 묶음 사용 | 1~2번 | 이미 받은 파일은 불필요. 최초 clone은 허용된 GitHub 수신, HTML은 내부 Browser 연결 필요 |
 | 로컬 파일 확인 | 3번 | 불필요 |
 | 이미 설치된 라이브러리 활용 | 4번 | 아래 예시는 로컬 파일만 사용 |
 | 개인 사전 연습용 설치 | 5번 | 패키지·의존성 수신 필요. 응시 중 설치 지시가 아님 |
@@ -20,13 +20,13 @@ node --version
 python --version
 ```
 
-Workkit 서버는 **Node 18.2 이상**을 기준으로 한다. 없으면 환경을 업데이트하지 말고 MD·제공 PDF 미리보기를 사용한다. 아래 명령은 라이브러리를 찾을 수 있는지만 확인하며 실제 import·작업 성공을 보장하지 않는다.
+자료 열람 서버는 **Node 18.2 이상**을 기준으로 한다. 없으면 환경을 업데이트하지 말고 MD·제공 PDF 미리보기를 사용한다. 아래 명령은 라이브러리를 찾을 수 있는지만 확인하며 실제 import·작업 성공을 보장하지 않는다.
 
 ```sh
 python -c "import importlib.util as u; print({n: u.find_spec(n) is not None for n in ['pandas', 'pypdf', 'pdfplumber', 'duckdb']})"
 ```
 
-## 2. Workkit 받기와 열기
+## 2. 자료 묶음 받기와 열기
 
 이미 clone했다면 첫 명령을 건너뛴다. 최초 clone은 운영 안내가 허용한 저장소 접근이 가능할 때만 수행한다. 같은 폴더가 있는데 다시 clone하거나 덮어쓰지 않는다.
 
@@ -55,7 +55,7 @@ node serve.mjs --port 8000
 
 ## 3. 추가 설치 없이 로컬 파일 확인
 
-**이 절부터는 공개 Workkit 밖의 해당 과제 폴더에서 실행한다.** 입력은 읽기만 한다. 작은 파일의 초기 구조 확인 예시이며 업무 검증을 완성하는 명령은 아니다.
+**이 절부터는 공개 참고자료 폴더 밖의 해당 과제 폴더에서 실행한다.** 입력은 읽기만 한다. 작은 파일의 초기 구조 확인 예시이며 업무 검증을 완성하는 명령은 아니다.
 
 CSV 헤더·파싱된 레코드 수 확인. UTF-8/BOM·쉼표 구분 전제이므로 인코딩·구분자는 실제 파일에 맞춘다.
 
@@ -107,7 +107,7 @@ python -c "import duckdb; print(duckdb.sql('SELECT 1 AS ok').fetchall())"
 
 ## 5. 개인 사전 연습 환경에서만 설치
 
-**응시 환경의 설치 명령이 아니다.** 인터넷·설치가 허용된 개인 연습 폴더에서 기존 도구로 부족할 때만 선택한다. Workkit 사용 자체에는 필요 없다. 제공 Codex·모델·시스템 Python을 업데이트하는 명령은 넣지 않았다.
+**응시 환경의 설치 명령이 아니다.** 인터넷·설치가 허용된 개인 연습 폴더에서 기존 도구로 부족할 때만 선택한다. 이 자료 묶음 사용 자체에는 필요 없다. 제공 Codex·모델·시스템 Python을 업데이트하는 명령은 넣지 않았다.
 
 현재 위치가 개인 연습 폴더인지 확인한다. 기존 `.venv-prep`가 있으면 덮어 만들지 말고 그 Python을 확인한다. 새 환경은 한 번만 만든다.
 
@@ -137,7 +137,7 @@ Windows Git Bash에서 Windows Python으로 만든 환경이면 bin/python 대�
 
 ## 6. 개인 사전 연습용 ooo와 omo
 
-**인터넷·설치·호스트 설정 변경이 허용된 개인 환경에서만 선택하는 예시다.** Workkit을 사용하거나 받은 MD를 읽는 데 필요하지 않다. 이미 설치·설정된 경우 다시 설치하지 말고 해당 호스트에서 사용한다. 아래는 공식 문서를 대조한 명령이며 이번 작업에서 실행하지 않았다. 두 도구를 모두 설치하라는 절차가 아니다.
+**인터넷·설치·호스트 설정 변경이 허용된 개인 환경에서만 선택하는 예시다. 응시용 실행 절차가 아니다.** 이 자료 묶음을 사용하거나 받은 MD를 읽는 데 필요하지 않다. 이미 설치·설정된 경우 다시 설치하지 말고 해당 호스트에서 사용한다. 아래는 공식 문서를 대조한 명령이며 이번 작업에서 실행하지 않았다. 두 도구를 모두 설치하라는 절차가 아니다. 모델·인증·외부 통신별 판단은 [레포 재점검](REPOSITORIES.md)에 있다.
 
 ### ooo · Ouroboros: 기존 Codex CLI에 연결하는 예
 
@@ -150,11 +150,11 @@ ouroboros --help
 ouroboros setup --runtime codex
 ```
 
-`setup`은 도구 연결·MCP·관리되는 규칙/스킬과 설정을 변경한다. 실행 후 새 호스트 세션에서 [RUNBOOK 9번](RUNBOOK.md#9-개인-사전-연습에서-ooo와-omo-사용)의 채팅 입력을 사용한다. `ooo`를 일반 셸 실행 파일로 가정하지 않는다. uv가 없거나 설치·연결이 막히면 이 예시를 계속 진행하지 않는다. [공식 설치 옵션](https://github.com/Q00/ouroboros/blob/main/README.md), [Codex 연동과 확인 명령](https://github.com/Q00/ouroboros/blob/main/docs/runtime-guides/codex.md)
+`setup`은 도구 연결·MCP·관리되는 규칙/스킬과 설정을 변경한다. Codex backend는 선택 모델을 기본 상속하지만, 제공 Probe의 CLI 인증까지 이어진다고 확인한 것은 아니다. MCP 시작 시 PyPI 업데이트 알림 조회도 있어 완전한 무통신 도구로 보지 않는다. 실행 후 새 개인 호스트 세션에서 [RUNBOOK 9번](RUNBOOK.md#9-개인-사전-연습에서-ooo와-omo-사용)의 채팅 입력을 사용한다. 패키지에 `ooo` CLI 별칭도 있지만, 이 문서의 `ooo interview` 같은 채팅 요청문을 그대로 셸에 넣지 않는다. uv가 없거나 설치·연결이 막히면 이 예시를 계속 진행하지 않는다. [공식 설치 옵션](https://github.com/Q00/ouroboros/blob/main/README.md), [Codex 연동과 확인 명령](https://github.com/Q00/ouroboros/blob/main/docs/runtime-guides/codex.md)
 
 ### omo · Oh My OpenAgent: 기존 Codex CLI의 Light 예
 
-기존 Codex CLI와 Node/npm의 `npx`가 필요하고 Windows에서는 Git Bash도 필요하다. Light는 기존 Codex 인증을 사용한다. 아래 명령은 **추가 자율 실행 권한 설정을 선택하지 않는 옵션**이며, 플러그인·설정·훅·MCP·에이전트 파일까지 변경하지 않는다는 뜻은 아니다.
+기존 Codex CLI와 Node/npm의 `npx`가 필요하고 Windows에서는 Git Bash도 필요하다. Light는 기존 Codex 인증을 사용한다. 아래 명령은 **이번 설치에서 추가 자율 실행 권한 설정을 선택하지 않는 옵션**이며, 플러그인·설정·훅·MCP·에이전트 파일까지 변경하지 않는다는 뜻은 아니다. 현재 배포 설정에는 Astra 모델·원격 MCP·기본 통계 전송이 있고, 자체 자동 갱신의 기본 명령에는 `--codex-autonomous`가 있다. **이 옵션 하나로 이후 권한·모델·외부 통신이나 응시 규정 충족까지 보장하지 않는다.**
 
 ```sh
 npx lazycodex-ai install --no-codex-autonomous

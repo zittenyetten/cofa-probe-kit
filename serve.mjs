@@ -83,14 +83,14 @@ server.on('error', error => {
   process.exitCode = 1;
 });
 server.listen(port, '0.0.0.0', () => {
-  console.log(`Workkit: http://localhost:${server.address().port}/ (listening on 0.0.0.0)`);
+  console.log(`Cofa Probe Kit: http://localhost:${server.address().port}/ (listening on 0.0.0.0)`);
   console.log('Open / in the provided browser. Stop with Ctrl+C.');
 });
 let stopping = false;
 for (const signal of ['SIGINT', 'SIGTERM']) process.on(signal, () => {
   if (stopping) return;
   stopping = true;
-  console.log('\nStopping Workkit server.');
+  console.log('\nStopping Cofa Probe Kit server.');
   server.close(() => process.exit(0));
   server.closeIdleConnections();
   setTimeout(() => server.closeAllConnections(), 5000).unref();
