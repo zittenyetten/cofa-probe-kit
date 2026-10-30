@@ -138,7 +138,7 @@ Windows Git Bash에서 Windows Python으로 만든 환경이면 bin/python 대�
 
 ### ooo · Ouroboros: 기존 Codex CLI에 연결하는 예
 
-기존 Codex CLI의 정상 사용과 `uv` 사용 가능 여부가 전제다. Python 3.12 이상이 필요하며, 패키지·의존성·필요한 런타임 수신이 발생할 수 있다. 다른 호스트를 쓰면 [공식 시작 안내](https://github.com/Q00/ouroboros/blob/main/docs/getting-started.md)의 해당 경로를 고른다.
+아래 간단 예는 **Linux·WSL의 개인 연습 환경** 기준이다. 기존 Codex CLI의 정상 사용과 `uv` 사용 가능 여부가 전제다. Python 3.12 이상이 필요하며, 패키지·의존성·필요한 런타임 수신이 발생할 수 있다. **Native Windows는 같은 setup만으로 MCP 연결이 완료된다고 가정하지 않는다.** 확인한 upstream은 별도 연결 절차를 요구하며 이 자료에는 해당 서버 절차를 추가하지 않았다. [공식 Codex 안내](https://github.com/Q00/ouroboros/blob/722172ef096767583679d04aef5e847458fee6b2/docs/runtime-guides/codex.md)를 확인한다. 다른 호스트를 쓰면 [공식 시작 안내](https://github.com/Q00/ouroboros/blob/main/docs/getting-started.md)의 해당 경로를 고른다.
 
 ```sh
 uv --version
@@ -169,3 +169,17 @@ npx lazycodex-ai install --no-codex-autonomous
 - [Python venv](https://docs.python.org/3/library/venv.html), [pip 사용법](https://pip.pypa.io/en/stable/user_guide/), [CSV](https://docs.python.org/3/library/csv.html), [JSON](https://docs.python.org/3/library/json.html). 라이브러리별 근거는 [레포 모음](REPOSITORIES.md)에 연결했다.
 
 실제 질문·프롬프트·데이터·결과는 과제 공간에만 둔다. 이 명령 모음에 커밋·push·외부 전송 절차를 추가하지 않는다.
+
+## 8. MCP 설정을 이해하고 확인하기
+
+**JSON/TOML은 터미널 명령이 아니다.** [REPOSITORIES의 MCP 설명](REPOSITORIES.md#5-mcp와-json은-어디에-쓰나)에 호스트별 위치·설명용 JSON/TOML·개인 연습용 등록 예시를 모았다. Cofa의 실제 MCP 화면 형식은 미확인이다. 아래는 현재 호스트의 명령 지원을 읽기 전용으로 확인할 때 쓰며, 같은 명령이 제공 환경에 있다고 가정하지 않는다.
+
+```sh
+codex --version
+codex mcp --help
+codex mcp add --help
+```
+
+개인 Codex의 설정 등록 목록을 확인할 때는 `codex mcp list`, Codex TUI에서 활성 상태를 확인할 때는 `/mcp`다. 등록과 도구 호출 성공은 구분한다. 실제 설정에는 주소·인증 정보가 있을 수 있으므로 출력이나 설정 원문을 공개 저장소로 복사하지 않는다.
+
+이 제작 환경의 Codex CLI 0.164.0에서 위 세 도움말/버전 명령만 실행했다. `add`·`remove`·`login`·실제 도구 호출이나 개인 설정 변경은 수행하지 않았다. [Codex MCP 공식 안내](https://learn.chatgpt.com/docs/extend/mcp?surface=cli)
