@@ -24,7 +24,7 @@ const routes = new Map([
   ['/viewer/viewer.js', 'viewer/viewer.js'],
   ...[
     'README.md', 'AGENTS.md', 'LICENSE', 'VALIDATION.md', 'RUNBOOK.md', 'ESSAY_PREP.md',
-    'REPOSITORIES.md', 'COMMANDS.md', 'DATA_AI_GUIDE.md',
+    'REPOSITORIES.md', 'COMMANDS.md', 'DATA_AI_GUIDE.md', 'TRIAL_15MIN.md',
     'references/semiconductor-glossary.md',
     'skills/task-evidence-check/SKILL.md',
     'skills/task-evidence-check/references/cofa-core.md',
