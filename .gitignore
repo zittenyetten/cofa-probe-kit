@@ -16,6 +16,7 @@
 !templates/
 templates/*
 !templates/WORKLOG.template.md
+!templates/TASK_REQUEST.template.md
 !skills/
 skills/*
 !skills/task-evidence-check/
@@ -28,6 +29,7 @@ skills/task-evidence-check/references/*
 references/*
 !references/semiconductor-glossary.md
 !references/interview-qa-methods.md
+!references/prompt-skill-template-guide.md
 !output/
 output/*
 !output/pdf/

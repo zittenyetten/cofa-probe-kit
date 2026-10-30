@@ -176,7 +176,7 @@ pandas를 사용한다면 특히 두 가지를 주의한다. `isna()`는 기본�
 
 토큰 설명은 [Hugging Face 토크나이저 문서](https://huggingface.co/docs/transformers/tokenizer_summary), RAG의 기본 개념은 [Lewis 외, 2020 논문 초록](https://arxiv.org/abs/2005.11401), 추가 학습의 뜻은 [Hugging Face 학습 문서](https://huggingface.co/docs/transformers/training)를 참고했다. 로컬 자료 활용과 오류 점검은 이 자료의 적용 제안이다. 모델 다운로드·외부 API 연결·추가 학습을 실행하라는 안내가 아니다.
 
-외부 검색이 안 되면 **제공 자료 → 로컬 파일 → 실제 담당자 답변**으로 근거를 확보한다. 로컬에 없고 확인할 수도 없는 정보는 미확인으로 남긴다. 실제 사용 단계의 요청문은 [RUNBOOK 8번](RUNBOOK.md#8-데이터ai-용어와-방법론-참고)에 있다.
+외부 검색이 안 되면 **제공 자료 → 로컬 파일 → 실제 담당자 답변**으로 근거를 확보한다. 로컬에 없고 확인할 수도 없는 정보는 미확인으로 남긴다. 실제 사용 단계의 요청문은 [RUNBOOK 8번](RUNBOOK.md#8-데이터ai-용어와-방법론-참고)에 있다. 요청을 구체화하고 개선하는 법, 스킬·빈 양식의 차이는 [프롬프트·스킬·템플릿 안내](references/prompt-skill-template-guide.md)를 필요한 때만 참고한다.
 
 ## 8. 검증과 설명
 
