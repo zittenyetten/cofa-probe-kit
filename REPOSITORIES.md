@@ -16,7 +16,7 @@
 
 | 레포 | 사용할 것 | 받은 뒤 조건 |
 | --- | --- | --- |
-| [zittenyetten/cofa-probe-kit](https://github.com/zittenyetten/cofa-probe-kit) | 시작 안내, 요구·검증 스킬 1개, WORKLOG 빈 양식, 반도체 참고자료 | MD는 로컬 읽기. HTML은 Node 18.2 이상과 허용된 내부 Browser. PDF는 제공 미리보기. 추가 패키지 없음 |
+| [zittenyetten/cofa-probe-kit](https://github.com/zittenyetten/cofa-probe-kit) | 시작 안내, 요구·검증 스킬 1개, WORKLOG 빈 양식, 반도체 참고자료 | MD는 로컬 읽기. HTML·PDF는 기존 내부 파일 미리보기 지원 시에만 사용. 참고자료용 서버·설치 없음, 미지원이면 MD |
 
 최초 clone은 허용된 GitHub 수신 경로가 필요하다. 이미 받은 자료의 열람에는 외부 조회가 필요 없지만 **제공 AI의 모델 연결까지 오프라인이라는 뜻은 아니다.** 이 저장소에 아래 도구의 코드·패키지·실행 파일은 포함하지 않았다.
 

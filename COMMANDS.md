@@ -4,7 +4,7 @@
 
 | 상황 | 볼 곳 | 외부 연결 |
 | --- | --- | --- |
-| 받은 자료 묶음 사용 | 1~2번 | 이미 받은 파일은 불필요. 최초 clone은 허용된 GitHub 수신, HTML은 내부 Browser 연결 필요 |
+| 받은 자료 묶음 사용 | 1~2번 | 이미 받은 파일은 불필요. 최초 clone은 허용된 GitHub 수신, HTML은 기존 내부 파일 미리보기 지원 필요 |
 | 로컬 파일 확인 | 3번 | 불필요 |
 | 이미 설치된 라이브러리 활용 | 4번 | 아래 예시는 로컬 파일만 사용 |
 | 개인 사전 연습용 설치 | 5번 | 패키지·의존성 수신 필요. 응시 중 설치 지시가 아님 |
@@ -16,11 +16,10 @@
 
 ```sh
 git --version
-node --version
 python --version
 ```
 
-자료 열람 서버는 **Node 18.2 이상**을 기준으로 한다. 없으면 환경을 업데이트하지 말고 받은 MD를 사용한다. PDF 미리보기가 된다고 가정하지 않는다. 아래 명령은 라이브러리를 찾을 수 있는지만 확인하며 실제 import·작업 성공을 보장하지 않는다.
+자료집을 읽기 위한 서버·Node 설치나 실행은 안내하지 않는다. 받은 MD는 파일 목록 또는 제공 AI로 읽는다. HTML·PDF 미리보기가 된다고 가정하지 않는다. 아래 명령은 실제 데이터 작업에 필요할 때만 라이브러리 존재 여부를 확인하는 예시이며, import·작업 성공을 보장하지 않는다.
 
 ```sh
 python -c "import importlib.util as u; print({n: u.find_spec(n) is not None for n in ['pandas', 'pypdf', 'pdfplumber', 'duckdb']})"
@@ -47,15 +46,7 @@ git -C cofa-probe-kit rev-parse --short HEAD
 python -X utf8 -c "from pathlib import Path; print(Path('cofa-probe-kit/START_HERE.md').read_text(encoding='utf-8'))"
 ```
 
-파일 목록에서 `cofa-probe-kit/START_HERE.md`를 직접 열어도 된다. **그림을 내부 Browser로 볼 때만** 아래 서버를 실행한다. MD를 읽고 과제를 시작하는 데에는 필요 없다.
-
-```sh
-node cofa-probe-kit/serve.mjs --port 3000
-```
-
-이미 clone 폴더 안에 있다면 `node serve.mjs --port 3000`이다. 서버 터미널을 유지하고 **전체화면을 유지한 채 제공 내부 Browser**에서 확인한다. PORT·경로 칸이 있으면 `3000`과 `/`, URL만 표시되면 해당 환경의 내부 미리보기를 사용한다. 외부 주소창·새 탭에 주소를 옮기지 않는다. 실제 제공 포트가 다르면 그 안내를 우선한다.
-
-3000이 점유됐으면 이 대화에서 실행한 서버인지 확인하고 다른 과제 프로세스는 종료하지 않는다. 허용된 다른 포트가 확인되지 않으면 MD로 전환한다. 종료는 이 열람 서버의 터미널에서만 `Ctrl+C`다. 승인 창의 실행 내용에 외부 브라우저·새 창 열기가 포함되면 진행하지 않는다.
+파일 목록에서 `cofa-probe-kit/START_HERE.md`를 직접 열어도 된다. 그림이 필요하면 [RUNBOOK 1번](RUNBOOK.md#1-자료-준비-clone과-html-열기)으로 기존 `viewer/index.html`과 이미지·CSS·JS를 내부 미리보기로 볼 수 있는지 확인한다. **이 참고자료를 위해 서버를 새로 만들거나 실행하지 않는다.** 포트 설정·설치·프로세스 종료도 필요하지 않다. 미지원이면 받은 MD로 진행한다.
 
 PDF가 안 열리면 `cofa-probe-kit/references/semiconductor-glossary.md`를 읽고, 그림은 기존 HTML로 확인한다. PDF 재변환·새 HTML 제작은 필요 없다. 상세 대안은 [RUNBOOK 4번](RUNBOOK.md#4-pdf-열람-대안)을 따른다.
 
@@ -175,6 +166,6 @@ npx lazycodex-ai install --no-codex-autonomous
 - Windows 제작 환경의 Node 22.16.0, Python 3.12.14/3.13.3으로 기본 명령과 로컬 파일 예시를 확인했다. pandas 3.0.1, pypdf 6.10.0, pdfplumber 0.11.9의 작은 가상 입력을 사용했다. 최신 버전 표기가 아니다.
 - 가상환경 생성·pip 실행 확인과 실제 패키지 설치를 구분한다. 새 패키지를 설치하지 않았고 설치 명령은 공식 문서와 대조했다. Linux/macOS 셸·DuckDB·실제 Probe 실행은 미검증이다.
 - ooo·omo의 설치·설정·채팅 입력은 공식 문서와 대조한 예시다. 이번 추가에서 설치·로그인·설정 변경·모델 작업 실행을 하지 않았다.
-- [Python venv](https://docs.python.org/3/library/venv.html), [pip 사용법](https://pip.pypa.io/en/stable/user_guide/), [CSV](https://docs.python.org/3/library/csv.html), [JSON](https://docs.python.org/3/library/json.html), [Node 종료 API](https://nodejs.org/api/http.html#servercloseidleconnections). 라이브러리별 근거는 [레포 모음](REPOSITORIES.md)에 연결했다.
+- [Python venv](https://docs.python.org/3/library/venv.html), [pip 사용법](https://pip.pypa.io/en/stable/user_guide/), [CSV](https://docs.python.org/3/library/csv.html), [JSON](https://docs.python.org/3/library/json.html). 라이브러리별 근거는 [레포 모음](REPOSITORIES.md)에 연결했다.
 
 실제 질문·프롬프트·데이터·결과는 과제 공간에만 둔다. 이 명령 모음에 커밋·push·외부 전송 절차를 추가하지 않는다.
