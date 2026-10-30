@@ -188,6 +188,8 @@ DuckDB의 자동 확장 설치·로드 제어와 네트워크 차단은 다르�
 
 ## 설치보다 문서 참고가 적절한 것
 
+Superpowers의 역할 분리 방식은 이 자료집의 [방법 안내 4절](references/interview-qa-methods.md#4-역할-분리-작업과-검토의-관점-나누기)과 [복사용 요청문](RUNBOOK.md#설치-없이-역할을-나누어-작업검토하기)에 정리했다. 같은 AI의 순차 검토가 기본이며, 이를 위해 원본 레포를 추가로 받을 필요는 없다.
+
 | 레포 | 참고할 부분 | 전체 도구 사용과의 차이 |
 | --- | --- | --- |
 | [obra/superpowers](https://github.com/obra/superpowers) | [완료 전 검증](https://github.com/obra/superpowers/blob/2ce8aa15d05bd57213e6f746f953aafb7ded7a8b/skills/verification-before-completion/SKILL.md)의 주장·실행 근거 대조 | 현재 Codex판은 hooks를 포함하지 않지만 전체 흐름에는 하위 에이전트·worktree·Git Push 선택지도 있음. 설치해 모든 절차를 그대로 적용하지 않음 |
